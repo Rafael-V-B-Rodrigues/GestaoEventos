@@ -1,8 +1,40 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Gestão de Eventos";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="p-5 mb-4 bg-light rounded-3 text-center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+    <div class="container-fluid py-5">
+        <h1 class="display-4 fw-bold">Gestão de Eventos</h1>
+        <p class="col-md-8 fs-4 mx-auto">
+            A solução completa para organizar, planejar e realizar seus eventos com eficiência.
+        </p>
+        <a class="btn btn-light btn-lg mt-3" type="button" href="/Eventos/Create">Criar Novo Evento</a>
+    </div>
+</div>
+
+<div class="row align-items-md-stretch">
+    <div class="col-md-4 mb-3">
+        <div class="h-100 p-4 bg-white border rounded-3 shadow-sm text-center">
+            <div style="font-size: 3rem;">📅</div>
+            <h2 class="mt-2">Meus Eventos</h2>
+            <p>Visualize a lista completa de eventos agendados e gerencie os detalhes de cada um.</p>
+            <a class="btn btn-outline-primary" href="/Eventos">Ver Lista</a>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="h-100 p-4 bg-white border rounded-3 shadow-sm text-center">
+            <div style="font-size: 3rem;">👥</div>
+            <h2 class="mt-2">Participantes</h2>
+            <p>Controle a lista de convidados, inscrições e presenças de forma simples.</p>
+            <button class="btn btn-outline-secondary" type="button">Em Breve...</button>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="h-100 p-4 bg-white border rounded-3 shadow-sm text-center">
+            <div style="font-size: 3rem;">📊</div>
+            <h2 class="mt-2">Relatórios</h2>
+            <p>Acesse métricas e resultados para entender o desempenho dos seus eventos.</p>
+            <button class="btn btn-outline-secondary" type="button">Em Breve...</button>
+        </div>
+    </div>
 </div>

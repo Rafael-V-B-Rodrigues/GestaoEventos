@@ -1,6 +1,38 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Sobre o Projeto";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow border-0 rounded-3">
+                <div class="card-body p-5 text-center">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎓</div>
+                    
+                    <h1 class="fw-bold mb-4" style="color: var(--secondary-color);">@ViewData["Title"]</h1>
+                    
+                    <p class="lead mb-4">
+                        Este sistema de <strong>Gestão de Eventos</strong> foi desenvolvido como parte de um projeto acadêmico de arquitetura de software (Clean Architecture) com .NET.
+                    </p>
+                    
+                    <hr class="my-4">
+                    
+                    <div class="text-muted text-start">
+                        <h5 style="color: var(--primary-color);">Notas Legais</h5>
+                        <p>
+                            Todo o código fonte e design apresentados aqui têm propósito estritamente educacional. 
+                            Nenhum dado real de usuários ou eventos deve ser inserido neste ambiente de demonstração.
+                        </p>
+                        <p>
+                            &copy; @DateTime.Now.Year - Todos os direitos reservados para fins de estudo.
+                        </p>
+                    </div>
+
+                    <div class="mt-5">
+                        <a href="/" class="btn btn-primary px-4">Voltar para o Início</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

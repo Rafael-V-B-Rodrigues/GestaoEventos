@@ -4,53 +4,69 @@
     ViewData["Title"] = "Editar Evento";
 }
 
-<h2>@ViewData["Title"]</h2>
-<hr />
-<div class="row">
-    <div class="col-md-6">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            
-            <input type="hidden" asp-for="Id" />
-            
-            <div class="form-group mb-3">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-3">
-                <label asp-for="CategoriaId" class="control-label"></label>
-                <select asp-for="CategoriaId" class="form-select" asp-items="ViewBag.Categorias">
-                    <option value="">Selecione uma categoria...</option>
-                </select>
-                <span asp-validation-for="CategoriaId" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-3">
-                <label asp-for="Descricao" class="control-label"></label>
-                <textarea asp-for="Descricao" class="form-control" rows="3"></textarea>
-                <span asp-validation-for="Descricao" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-3">
-                <label asp-for="Local" class="control-label"></label>
-                <input asp-for="Local" class="form-control" />
-                <span asp-validation-for="Local" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-3">
-                <label asp-for="DataInicio" class="control-label"></label>
-                <input asp-for="DataInicio" class="form-control" type="datetime-local" />
-                <span asp-validation-for="DataInicio" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-3">
-                <label asp-for="Capacidade" class="control-label"></label>
-                <input asp-for="Capacidade" class="form-control" type="number" />
-                <span asp-validation-for="Capacidade" class="text-danger"></span>
-            </div>
-            
-            <div class="form-group">
-                <input type="submit" value="Salvar" class="btn btn-primary" />
-                <a asp-action="Index" class="btn btn-secondary">Voltar</a>
-            </div>
-        </form>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        
+        <a asp-action="Index" class="text-decoration-none text-muted mb-3 d-inline-block">
+            <i class="fa-solid fa-arrow-left me-1"></i> Voltar para lista
+        </a>
+
+        <div class="form-card mt-2">
+            <h2 class="mb-4 fw-bold" style="color: var(--secondary-color);">
+                <i class="fa-solid fa-pen-to-square me-2"></i>@ViewData["Title"]
+            </h2>
+            <hr class="mb-4 opacity-25">
+
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                
+                <input type="hidden" asp-for="Id" />
+                
+                <div class="form-group mb-3">
+                    <label asp-for="Nome" class="control-label">Nome do Evento</label>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                         <label asp-for="CategoriaId" class="control-label">Categoria</label>
+                        <select asp-for="CategoriaId" class="form-select" asp-items="ViewBag.Categorias">
+                            <option value="">Selecione...</option>
+                        </select>
+                        <span asp-validation-for="CategoriaId" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Local" class="control-label">Localização</label>
+                        <input asp-for="Local" class="form-control" />
+                        <span asp-validation-for="Local" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Descricao" class="control-label">Descrição</label>
+                    <textarea asp-for="Descricao" class="form-control" rows="4"></textarea>
+                    <span asp-validation-for="Descricao" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="DataInicio" class="control-label">Data e Hora</label>
+                        <input asp-for="DataInicio" class="form-control" type="datetime-local" />
+                        <span asp-validation-for="DataInicio" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Capacidade" class="control-label">Capacidade</label>
+                        <input asp-for="Capacidade" class="form-control" type="number" />
+                        <span asp-validation-for="Capacidade" class="text-danger"></span>
+                    </div>
+                </div>
+                
+                <div class="d-grid gap-2 mt-4">
+                    <input type="submit" value="Salvar Alterações" class="btn btn-primary btn-lg" />
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 

@@ -1,24 +1,42 @@
 ﻿@model GestaoEventos.Application.ViewModels.CategoriaViewModel
 
-@{ ViewData["Title"] = "Editar Categoria"; }
+@{
+    ViewData["Title"] = "Editar Categoria";
+}
 
-<h1>Editar Categoria</h1>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group mb-3">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Salvar" class="btn btn-primary" />
-                <a asp-action="Index" class="btn btn-secondary">Voltar</a>
-            </div>
-        </form>
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        
+        <a asp-action="Index" class="text-decoration-none text-muted mb-3 d-inline-block">
+            <i class="fa-solid fa-arrow-left me-1"></i> Voltar para lista
+        </a>
+
+        <div class="form-card mt-2">
+            <h2 class="mb-4 fw-bold" style="color: var(--secondary-color);">
+                <i class="fa-solid fa-pen-to-square me-2"></i>@ViewData["Title"]
+            </h2>
+
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                
+                <div class="form-group mb-4">
+                    <label asp-for="Nome" class="control-label">Nome da Categoria</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-light border-end-0"><i class="fa-solid fa-tag text-muted"></i></span>
+                        <input asp-for="Nome" class="form-control border-start-0 ps-0" />
+                    </div>
+                    <span asp-validation-for="Nome" class="text-danger small mt-1 d-block"></span>
+                </div>
+                
+                <div class="d-grid gap-2">
+                    <input type="submit" value="Salvar Alterações" class="btn btn-primary btn-lg" />
+                </div>
+            </form>
+        </div>
     </div>
 </div>
-@section Scripts { @{await Html.RenderPartialAsync("_ValidationScriptsPartial");} }
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
