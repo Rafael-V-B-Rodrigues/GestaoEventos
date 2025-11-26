@@ -15,12 +15,16 @@ namespace GestaoEventos.Infrastructure.Persistence.Repositories
 
         public async Task<Evento> GetByIdAsync(int id)
         {
-            return await _context.Eventos.FindAsync(id);
+            return await _context.Eventos
+                .Include(e => e.Categoria) 
+                .FirstOrDefaultAsync(e => e.Id == id);
         }
 
         public async Task<IEnumerable<Evento>> GetAllAsync()
         {
-            return await _context.Eventos.ToListAsync();
+            return await _context.Eventos
+                .Include(e => e.Categoria) 
+                .ToListAsync();
         }
 
         public async Task AddAsync(Evento evento)
@@ -36,6 +40,14 @@ namespace GestaoEventos.Infrastructure.Persistence.Repositories
         public void Remove(Evento evento)
         {
             _context.Eventos.Remove(evento);
+        }
+
+        public async Task<IEnumerable<Evento>> SearchByNameAsync(string term)
+        {
+            return await _context.Eventos
+                .Include(e => e.Categoria) 
+                .Where(e => e.Nome.Contains(term))
+                .ToListAsync();
         }
     }
 }

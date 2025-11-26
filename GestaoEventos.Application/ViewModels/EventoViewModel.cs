@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using GestaoEventos.Application.Validations; 
 
 namespace GestaoEventos.Application.ViewModels
 {
@@ -8,6 +9,7 @@ namespace GestaoEventos.Application.ViewModels
 
         [Required(ErrorMessage = "O nome é obrigatório")]
         [StringLength(100, MinimumLength = 3)]
+        [PrimeiraLetraMaiuscula]
         public string Nome { get; set; }
 
         [StringLength(500)]
@@ -18,10 +20,17 @@ namespace GestaoEventos.Application.ViewModels
 
         [Required(ErrorMessage = "A data de início é obrigatória")]
         [DataType(DataType.DateTime)]
+        [DataFutura]
         public DateTime DataInicio { get; set; }
 
         [Required(ErrorMessage = "A capacidade é obrigatória")]
         [Range(1, 100000, ErrorMessage = "A capacidade deve ser no mínimo 1")]
         public int Capacidade { get; set; }
+
+        [Required(ErrorMessage = "A categoria é obrigatória")]
+        [Display(Name = "Categoria")]
+        public int CategoriaId { get; set; }
+
+        public string? CategoriaNome { get; set; }
     }
 }

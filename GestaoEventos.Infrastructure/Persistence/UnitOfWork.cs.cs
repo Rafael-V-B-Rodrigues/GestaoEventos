@@ -7,11 +7,13 @@ namespace GestaoEventos.Infrastructure.Persistence
     {
         private readonly AppDbContext _context;
         public IEventoRepository Eventos { get; }
+        public ICategoriaRepository Categorias { get; }
 
         public UnitOfWork(AppDbContext context)
         {
             _context = context;
             Eventos = new EventoRepository(_context);
+            Categorias = new CategoriaRepository(_context);
         }
 
         public async Task<int> CommitAsync()

@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿using MapsterMapper;
 using GestaoEventos.Application.Interfaces;
 using GestaoEventos.Application.ViewModels;
 using GestaoEventos.Core.Entities;
@@ -48,7 +48,8 @@ namespace GestaoEventos.Application.Services
                 eventoViewModel.Descricao,
                 eventoViewModel.Local,
                 eventoViewModel.DataInicio,
-                eventoViewModel.Capacidade
+                eventoViewModel.Capacidade,
+                eventoViewModel.CategoriaId
             );
 
             _unitOfWork.Eventos.Update(eventoExistente);
@@ -63,6 +64,12 @@ namespace GestaoEventos.Application.Services
 
             _unitOfWork.Eventos.Remove(evento);
             await _unitOfWork.CommitAsync();
+        }
+
+        public async Task<IEnumerable<EventoViewModel>> SearchAsync(string term)
+        {
+            var eventos = await _unitOfWork.Eventos.SearchByNameAsync(term);
+            return _mapper.Map<IEnumerable<EventoViewModel>>(eventos);
         }
     }
 }
